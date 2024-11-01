@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Round">
+    <link rel="stylesheet" href ="style.css">
+</head>
+
+<body>
+    <aside id="sidebar">
+        <img id="company-logo" src="./assets/company-logo.svg" alt="Construction Company">
+        <ul id="nav-buttons">
+            <li><span  id = "projects-page-btn" class="material-icons-round">apartment</span>   Projects</li>
+            <li><span class="material-icons-round">account_circle</span>   Users</li>
+        </ul>
+    </aside>
+    <main id="content">
+        <div id="projects-page" style = "display: flex; flex-direction: column;">
+            <dialog id="new-project-modal">
+                <form id ="new-project-form">
+                    <h2>New Project</h2>
+                    <div class="input-list">
+                        <div class ="form-field-container">
+                            <label><span class="material-icons-round">apartment</span>   Name</label>
+                            <input name="name" type ="text" placeholder="What is the name of your project?">
+                            <tip>Tip: Give it a short name</tip>
+                        </div>
+                        
+                        <div class ="form-field-container">
+                            <label><span class="material-icons-round">description</span>   Description</label>
+                            <textarea name = "description" cols="30" rows ="5" placeholder="Give your project's description"></textarea>
+                        </div>
+                        <div class ="form-field-container">
+                            <label><span class="material-icons-round">account_circle</span>   Role</label>
+                            <select name = "userRole">
+                                <option>Architect</option>
+                                <option>Engineer</option>
+                                <option>Developer</option>
+                            </select>
+                        </div>
+                        <div class ="form-field-container">
+                            <label><span class="material-icons-round">question_mark</span>Status</label>
+                            <select name ="status">
+                                <option>Pending</option>
+                                <option>Active</option>
+                                <option>Finished</option>
+                            </select>
+                        </div>
+                        <div class ="form-field-container">
+                            <label><span class="material-icons-round">calendar_month</span>   Finish Date</label>
+                            <input name="finishDate" type="date" id="finish" value="2024-07-22" min="2018-01-01" />
+                        </div>
+                    </div>
+                    <ul id ="form-buttons">
+                        <button id ="cancel-button" class="action-button">Cancel</button>
+                        <button id ="submit" class="action-button">Accept</button>
+                    </ul>
+                </form>
+            </dialog>
+            <header id ="page-header">
+                <h2>Projects</h2>
+                <div style = "display: flex; align-items:center; column-gap: 15px;">
+                    <span id = "import-projects-btn" class ="material-icons-round action-icon" style ="cursor: pointer;">file_upload</span>
+                   <span id = "export-projects-btn" class ="material-icons-round action-icon" style ="cursor: pointer;">file_download</span>
+                    <button id="new-project-btn"><span class="material-icons-round" style="vertical-align: sub;">add</span>New Project</button>
+                </div>
+            </header>
+            <div id ="project-list">
+               <!--<div class = "project-card">
+                    <div>
+                        <div class="card-header">
+                            <p style =" padding: 10px; background-color: #ca8134; border-radius: 8px; aspect-ratio: 1;">HC</p>
+                            <div>
+                                <h5>Project name</h5>
+                                <p>Project Description</p>
+                            </div>
+                        </div>
+                        <div class = "card-content">
+                            <div class ="card-property">
+                                <p style ="color: #969696;">Status</p>
+                                <p>Active</p>
+                            </div>
+                            <div class ="card-property">
+                                <p style ="color: #969696;">Role</p>
+                                <p>Architect</p>
+                            </div>
+                            <div class ="card-property">
+                                <p style ="color: #969696;">Cost</p>
+                                <p>$ 2000000</p>
+                            </div>
+                            <div class ="card-property">
+                                <p style ="color: #969696;">Estimated Progress</p>
+                                <p>45%</p>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+                
+                </div>--> 
+            </div>
+        
+        <div id ="project-details" style="display: none;">
+            <header>
+                <div>
+                    <h2>Hospital Center</h2>
+                    <p style="color: #969696;">Communicty hospital located at downtown</p>
+                </div>
+            </header>
+            <div class="main-page-content">
+                <div style="display: flex; flex-direction: column; row-gap: 30px;">
+                  <div class="dashboard-card" style="padding: 30px 0;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 0px 30px; margin-bottom: 30px;">
+                      <p style="font-size: 20px; background-color: #ca8134; aspect-ratio: 1; border-radius: 100%; padding: 12px;">HC</p>
+                      <button class="btn-secondary"><p style="width: 100%;">Edit</p></button>
+                    </div>
+                  <div style="padding: 0 30px;">
+                        <div>
+                            <h5>Hospital Center</h5>
+                            <p>Communicty hospital located at downtown </p>
+                        </div>
+                        <div style ="display: flex; column-gap: 45px; padding: 30px 0px 10px 0px;">
+                            <div>
+                                 <p style ="color:#969696; font-size: var(--font-base);">Status</p>
+                                <p>Active</p>
+                            </div>
+                            <div>
+                            <p style ="color:#969696; font-size: var(--font-base);">Cost</p>
+                                <p>$ 2'542.000</p>
+                            </div>
+                            <div>
+                                <p style ="color:#969696; font-size: var(--font-base);">Role</p>
+                                <p>Engineer</p>
+                            </div>
+                            <div>
+                                <p style ="color:#969696; font-size: var(--font-base);">Finish Date</p>
+                                <p>2023-05-01</p>
+                            </div>
+                        </div>
+                        <div style ="background-color: #404040; border-radius: 10px;">
+                            <div style ="width: 80%; background-color: green;"></div>
+                        </div>
+                        <div style="background-color: #404040; border-radius: 9999px; overflow: auto;">
+                            <div style="width: 80%; background-color: green; padding: 4px 0; text-align: center;">80%</div>
+                        </div>
+                    </div>
+                </div>
+                   
+                <div class="dashboard-card" style="flex-grow: 1;">
+                    <div style="padding: 20px 30px; display: flex; align-items: center; justify-content: space-between;">
+                        <h4>To-Do</h4>
+                        <div style="display: flex; align-items: center; justify-content: end; column-gap: 20px;">
+                        <div style="display: flex; align-items: center; column-gap: 10px;">
+                            <span class="material-icons-round">search</span>
+                            <input type="text" placeholder="Search To-Do's by name" style="width: 100%;">
+                        </div>
+                        <span class="material-icons-round">add</span>
+                        </div>
+                    </div>
+                    <div style="display: flex; flex-direction: column; padding: 10px 30px; row-gap: 20px;">
+                        <div class="todo-item">
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div style="display: flex; column-gap: 15px; align-items: center;">
+                            <span class="material-icons-round" style="padding: 10px; background-color: #686868; border-radius: 10px;">construction</span>
+                            <p>Make anything here as you want, even something longer.</p>
+                            </div>
+                            <p style="text-wrap: nowrap; margin-left: 10px;">Fri, 20 sep</p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+                <div id="viewer-container" class="dashboard-card"></div>
+            </div>
+        </div>
+
+        <div id = "user-page" style ="display: none; flex-direction: column;">
+            <header>
+                <div>
+                    <h2>Users Page</h2>
+                    <p style="color: #969696;">Welcome to the Users Page</p>
+                </div>
+                <div>
+                    <button><span class="material-icons-round" style="vertical-align: sub;" >add</span>  New User</button>
+                </div>
+            </header>
+            <body style="  background-color: var(--background); padding: 20px; ">
+                <div style="width: 100%; margin: 10px; background-color: var(--background-200); border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); overflow:hidden;">
+                    <table style="width: 100%; border-collapse: collapse;">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Last active</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Row 1 -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox"> Johnny Bowen
+                                </td>
+                                <td>
+                                    sravani@yahoo.com
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>Admin</option>
+                                        <option>Manager</option>
+                                        <option>User</option>
+                                        <option>Basic user</option>
+                                    </select>
+                                </td>
+                                <td>4 days ago</td>
+                                <td>Enabled</td>
+                            </tr>
+                            <!-- Row 2 -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox"> Blanche Hart
+                                </td>
+                                <td>
+                                    danzigism@aol.com
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>Manager</option>
+                                        <option>Admin</option>
+                                        <option>User</option>
+                                        <option>Basic user</option>
+                                    </select>
+                                </td>
+                                <td>40 mins ago</td>
+                                <td>Enabled</td>
+                            </tr>
+                            <!-- Row 3 -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox"> Sandra Gilbert
+                                </td>
+                                <td>
+                                    kspiteri@live.com
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>Admin</option>
+                                        <option>Manager</option>
+                                        <option>User</option>
+                                        <option>Basic user</option>
+                                    </select>
+                                </td>
+                                <td>2 hours ago</td>
+                                <td>Enabled</td>
+                            </tr>
+                            <!-- Row 4 -->
+                            <tr>
+                                <td>
+                                    <input type="checkbox"> Antonio Erickson
+                                </td>
+                                <td>
+                                    doormat@att.net
+                                </td>
+                                <td>
+                                    <select>
+                                        <option>Manager</option>
+                                        <option>Admin</option>
+                                        <option>User</option>
+                                        <option>Basic user</option>
+                                    </select>
+                                </td>
+                                <td>5 days ago</td>
+                                <td>Disabled</td>
+                            </tr>
+                            <!-- More rows... -->
+                        </tbody>
+                    </table>
+                </div>
+            </body>
+        </div>
+
+    </main>
+  <script type = "module" src ="./src/index.ts" ></script>
+  <script type = "module" src ="./src/class/ProjectsManager.ts" ></script>
+</body>
+
+
+<body>
+    <div id="errorPopup" class="popup hidden" >
+      <div class="popup-content error-content">
+        <span id="closeErrorPopup" class="close">&times;</span>
+        <h2>Error</h2>
+        <p id="errorMessage">An unexpected error occurred. Please try again later.</p>
+      </div>
+    </div>
+  
+  </body>
+</html>

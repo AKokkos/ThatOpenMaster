@@ -1,0 +1,348 @@
+/* create Variables */
+:root{
+    --primary: #029AE0;
+    --primary-100: #073044;
+    --primary-200: #415a66;
+    --primary-300: #017CB3;
+    --primary-400: #50b6e6;
+    --background: #202124;
+    --background-100: #26282b;
+    --background-200: #3b3c3f;
+
+    --font-xs:10px;
+    --font-sm:12px;
+    --font-base: 14px;
+    --font-lg:16px;
+    --font-xl: 18px;
+    --font-2xl: 20px:
+    --font-3xl: 22px;
+
+}
+*{
+    font-family: 'Inter', sans-serif;
+    margin:0;
+    padding: 0;
+
+body{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-areas: 'sidebar content';
+    height: 100vh;
+    background-color: var(--background);
+    color: #fff;
+    
+}
+
+/* General Styles */
+h2 {
+    font-size: var(--font-3xl)
+}
+h3 {
+    font-size: var(--font-2xl)
+}
+h4 {
+    font-size: var(--font-xl)
+}
+h5 {
+    font-size: var(--font-lg)
+}
+
+.material-icons-round {
+    vertical-align:text-bottom;
+}
+button{
+    padding: 8px 15px;
+    cursor: pointer;
+    height: 40px;
+    font-size: var(--font-base);
+    background-color: var(--primary);
+    color: white;
+    border-radius: 100px;
+    border: none;
+}
+button:hover{
+    background-color: var(--primary-400);
+}
+
+
+/* sidebar styles */
+
+#sidebar{
+    background-color: var(--background-100);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 40px;
+}
+
+#company-logo{
+    height: 65px;
+}
+
+#nav-buttons {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    
+}
+
+#nav-buttons li {
+    list-style-type: none;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: var(--font-base);
+    cursor: pointer;
+    /*background-color: var(--primary);*/
+
+}
+
+/* Pseudo Class for Hovering on an element */
+#nav-buttons li:hover{
+    background-color: var(--primary);
+}
+
+#content {
+    
+}
+
+header {
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+}
+ 
+
+.project-card {
+    background-color: var(var(--background-100));
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.project-card:hover{
+    outline: 2px solid var(--primary);
+}
+
+.card-header {
+    display: flex;
+    column-gap: 20px;
+    padding: 15px;
+    align-items: center;
+    justify-content: start;
+    border-bottom: 2px solid var(--background-200);
+    height: 60px;
+}
+
+.card-property {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    color: #3b3c3f;
+}
+
+#project-list{
+    display: grid;
+    padding: 20px 40px;
+    gap: 30px;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+}
+
+/* Form Styles (for New Project Button) */
+dialog{
+    background-color: transparent;
+    border: none;
+    margin: auto;
+}
+        /* :: for seudo elements */
+
+dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+    backdrop-filter: blur (3px);
+}
+
+
+form {
+    width: 450px;
+    border-radius: 10px;
+    background-color: var(--background-100);
+    color: white;
+}
+
+form h2 {
+    padding: 20px;
+    border-bottom: 2px solid var(--background-100);
+}
+
+form .input-list{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    row-gap: 25px;
+}
+
+form .form-field-container {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: var(--font-base);
+    margin-bottom: 10px;
+    font-weight: 500;
+    color: rgba(150,150,150,1);
+}
+
+input, textarea, select {
+    color: white;
+    background-color: var(--background-200);
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: var(--font-base);
+}
+
+input:focus, textarea:focus, select:focus{
+    outline: 2px, solid var(--primary);
+}
+
+
+form tip {
+    color: var(--background-200);
+    font-size: var(--font-base); 
+
+}
+
+#form-buttons {
+    
+    display: flex;
+    flex-direction:row;
+    padding:5px 20px 20px 10px;
+    justify-content: end;
+    column-gap: 8px;
+}
+
+#form-buttons .action-button:hover {
+    background-color: green;
+}
+
+/*  Project Details Page */
+
+.dashboard-card {
+    background-color: var(--background-100);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+        /* the > Sign is called a Child Combinator */
+#project-details > .main-page-content {
+    display: grid;
+    padding: 20px 40px;
+    gap:30px;
+    grid-template-columns: 475px 1fr;
+    height: 100%;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    outline: 2px solid #969696;
+    width: 100px;
+    text-align:center;
+}
+
+.btn-secondary:hover {
+    background-color: var (--primary);
+    outline: none;
+}
+
+.todo-item{
+    padding: 20px;
+    background-color: var(--background-200);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+.todo-item:hover{
+    background-color: var(--primary);
+}
+
+
+ /* table styling */
+
+ table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+    margin: 2px;
+    background-color: rgba(148, 146, 146, 0.562);
+    color: var(--primary-200);
+}
+
+td {
+    padding: 12px;
+    border-bottom: 1px solid var(--background);
+    color: var(--primary);
+}
+
+td input[type="checkbox"] {
+    margin-right: 10px;
+    justify-self: center;
+}
+
+/* Base styling for the pop-up */
+.popup {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  .hidden {
+    display: none;
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Styling specific for error pop-up */
+  .error-content {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  
+  .error-content h2 {
+    color: #721c24;
+  }
+  
+  .error-content p {
+    margin: 10px 0;
+  }
+  
