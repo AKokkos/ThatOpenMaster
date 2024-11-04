@@ -17,7 +17,7 @@
         </ul>
     </aside>
     <main id="content">
-        <div id="projects-page" style = "display: flex; flex-direction: column;">
+        <div class = "page" id="projects-page" style = "display: flex; flex-direction: column;">
             <dialog id="new-project-modal">
                 <form id ="new-project-form">
                     <h2>New Project</h2>
@@ -100,12 +100,13 @@
                 
                 </div>--> 
             </div>
+        </div>
         
-        <div id ="project-details" style="display: none;">
+        <div calss = "page" id ="project-details" style="display: none;">
             <header>
                 <div>
-                    <h2>Hospital Center</h2>
-                    <p style="color: #969696;">Communicty hospital located at downtown</p>
+                    <h2 data-project-info = "name">Hospital Center</h2>
+                    <p data-project-info = "description" style="color: #969696;">Communicty hospital located at downtown</p>
                 </div>
             </header>
             <div class="main-page-content">
@@ -117,25 +118,25 @@
                     </div>
                   <div style="padding: 0 30px;">
                         <div>
-                            <h5>Hospital Center</h5>
-                            <p>Communicty hospital located at downtown </p>
+                            <h5 data-project-info = "card-name">Hospital Center</h5>
+                            <p data-project-info = "card-description" >Communicty hospital located at downtown </p>
                         </div>
                         <div style ="display: flex; column-gap: 45px; padding: 30px 0px 10px 0px;">
                             <div>
                                  <p style ="color:#969696; font-size: var(--font-base);">Status</p>
-                                <p>Active</p>
+                                <p data-project-info = "status">Active</p>
                             </div>
                             <div>
                             <p style ="color:#969696; font-size: var(--font-base);">Cost</p>
-                                <p>$ 2'542.000</p>
+                                <p data-project-info = "project-cost">$ 2'542.000</p>
                             </div>
                             <div>
                                 <p style ="color:#969696; font-size: var(--font-base);">Role</p>
-                                <p>Engineer</p>
+                                <p data-project-info = "role">Engineer</p>
                             </div>
                             <div>
                                 <p style ="color:#969696; font-size: var(--font-base);">Finish Date</p>
-                                <p>2023-05-01</p>
+                                <p data-project-info = "finish-date">2023-05-01</p>
                             </div>
                         </div>
                         <div style ="background-color: #404040; border-radius: 10px;">

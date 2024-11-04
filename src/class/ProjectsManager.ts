@@ -1,6 +1,5 @@
 import { IProject, Project } from "./Project"
 import { showErrorPopup } from "../popup"
-
 export class ProjectsManager {
 
   list: Project[] = []
@@ -39,6 +38,7 @@ export class ProjectsManager {
       if (!(projectsPage && detailsPage)) { return }
       projectsPage.style.display = "none"
       detailsPage.style.display = "flex"
+      this.setDetailsPage(project)
     }
     )
 
@@ -60,7 +60,50 @@ export class ProjectsManager {
     this.list.push(project)
     return project;
   }
+// private -> only used internal by the Class //
+ private setDetailsPage(project: Project) {
+    const detailsPage = document.getElementById("project-details")
+    if (!detailsPage) {return}
+    const name = detailsPage.querySelector("[data-project-info = 'name']")
+    if (name) {name.textContent = project.name}
+   
+    const cardName = detailsPage.querySelector("[data-project-info = 'card-name']")
+        if (cardName) {cardName.textContent = project.name}
+    
 
+    const description = detailsPage.querySelector("[data-project-info = 'description']")
+    const cardDescription = detailsPage.querySelector("[data-project-info = 'card-description']")
+    if (description ) {description.textContent = project.description
+    }
+    if (cardDescription) {
+      cardDescription.textContent = project.description 
+    }
+
+    const  status = detailsPage.querySelector("[data-project-info = 'status']")
+    if (status) {status.textContent = project.status
+    }
+
+    const projectCost =  detailsPage.querySelector("[data-project-info = 'project-cost']")
+    if (projectCost) {projectCost.textContent = "$" + project.cost.toString(2)
+    }
+
+    const  role = detailsPage.querySelector("[data-project-info = 'role']")
+    if (role) {role.textContent = project.userRole
+    }
+
+    const  finishDate = detailsPage.querySelector("[data-project-info = 'finish-date']")
+    const options: Intl.DateTimeFormatOptions = {
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+  };
+    if (finishDate) {
+      
+      finishDate.textContent =project.finishDate.toLocaleDateString(undefined, options)
+      
+    }
+  }
+   
 
   getProject(id: string){
     const project =  this.list.find((project)=>{

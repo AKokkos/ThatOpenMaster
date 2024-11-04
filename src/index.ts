@@ -46,6 +46,7 @@ function toggleModal(id: string, action: string)
 const projectListUI = document.getElementById("project-list") as HTMLElement
 const projectsManager = new ProjectsManager(projectListUI)
 
+
 // add DOM objects for button functionality
 const newProjectBtn = document.getElementById("new-project-btn");
 
@@ -81,7 +82,7 @@ if (projectForm && projectForm instanceof HTMLFormElement) {
         {
             cancelBtn.addEventListener("click", ()=>{
             toggleModal("new-project-modal", "close")
-            })  
+            }) 
         }
 
    
