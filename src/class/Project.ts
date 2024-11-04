@@ -1,5 +1,6 @@
 import {v4 as uuidv4} from 'uuid'
 uuidv4();
+import { getInitials } from '../Initials';
 
 
 /* Biult for Typescript */
@@ -55,7 +56,7 @@ export class Project implements IProject {
         <div class = "project-card">
           <div>
               <div class="card-header">
-                  <p style =" padding: 10px; background-color: #ca8134; border-radius: 8px; aspect-ratio: 1;">HC</p>
+                  <p style =" padding: 10px; background-color: #ca8134; border-radius: 8px; aspect-ratio: 1;">${getInitials(this.name)}</p>
                   <div>
                       <h5>${this.name}</h5>
                       <p>${this.description}</p>

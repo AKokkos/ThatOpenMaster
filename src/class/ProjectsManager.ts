@@ -1,5 +1,6 @@
 import { IProject, Project } from "./Project"
 import { showErrorPopup } from "../popup"
+import { getInitials } from "../Initials"
 export class ProjectsManager {
 
   list: Project[] = []
@@ -70,7 +71,6 @@ export class ProjectsManager {
     const cardName = detailsPage.querySelector("[data-project-info = 'card-name']")
         if (cardName) {cardName.textContent = project.name}
     
-
     const description = detailsPage.querySelector("[data-project-info = 'description']")
     const cardDescription = detailsPage.querySelector("[data-project-info = 'card-description']")
     if (description ) {description.textContent = project.description
@@ -102,6 +102,13 @@ export class ProjectsManager {
       finishDate.textContent =project.finishDate.toLocaleDateString(undefined, options)
       
     }
+
+    const  cardInitials = detailsPage.querySelector("[data-project-info = 'card-initials']")
+    if (cardInitials) {cardInitials.textContent = getInitials(project.name)
+    }
+    
+
+
   }
    
 
