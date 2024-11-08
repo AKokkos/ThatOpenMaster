@@ -1,9 +1,9 @@
 import {v4 as uuidv4} from 'uuid'
 uuidv4();
 import { getInitials } from '../Initials';
+import { getRandomColor } from './RandomColor';
 
-
-/* Biult for Typescript */
+/* Built for Typescript */
 export type ProjecStatus = "pending" | "active" | "finished"
 export type UserRole = "architect" | "engineer" | "developer"
 
@@ -13,6 +13,7 @@ export interface IProject {
   status : ProjecStatus
   userRole : UserRole
   finishDate: Date
+  todos : {name : string, dueDate: string} []
 }
 
 export class Project implements IProject {
@@ -23,11 +24,13 @@ export class Project implements IProject {
     userRole : "architect" | "engineer" | "developer"
     finishDate: Date
 
+
     //Class internals
     ui: HTMLDivElement
     cost: number = 0
     progress: number = 0
     id: string
+    todos : {name : string, dueDate: string} [] 
 
     constructor(data: IProject){
 
@@ -41,6 +44,7 @@ export class Project implements IProject {
       this.status = data.status
       this.userRole = data.userRole
       this.finishDate = data.finishDate*/
+      this.todos = data.todos
       this.id = uuidv4()
       this.setUI()
     }
@@ -56,7 +60,7 @@ export class Project implements IProject {
         <div class = "project-card">
           <div>
               <div class="card-header">
-                  <p style =" padding: 10px; background-color: #ca8134; border-radius: 8px; aspect-ratio: 1;">${getInitials(this.name)}</p>
+                  <p style =" padding: 10px; background-color: ${getRandomColor()}; border-radius: 8px; aspect-ratio: 1;">${getInitials(this.name)}</p>
                   <div>
                       <h5>${this.name}</h5>
                       <p>${this.description}</p>

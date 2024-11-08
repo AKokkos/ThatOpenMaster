@@ -102,7 +102,7 @@
             </div>
         </div>
         
-        <div calss = "page" id ="project-details" style="display: none; flex-direction: column;">
+        <div class = "page" id ="project-details" style="display: none; flex-direction: column;">
             <header>
                 <div>
                     <h2 data-project-info = "name">Hospital Center</h2>
@@ -111,10 +111,10 @@
             </header>
             <div class="main-page-content">
                 <div style="display: flex; flex-direction: column; row-gap: 30px;">
-                  <div class="dashboard-card" style="padding: 30px 0;">
+                  <div class="dashboard-card-project-details" style="padding: 30px 0;">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 0px 30px; margin-bottom: 30px;">
                       <p data-project-info = "card-initials" style="font-size: 20px; background-color: #ca8134; aspect-ratio: 1; border-radius: 100%; padding: 12px;">HC</p>
-                      <button class="btn-secondary"><p style="width: 100%;">Edit</p></button>
+                      <button class="btn-secondary" id ="edit-button"><p style="width: 100%;">Edit</p></button>
                     </div>
                   <div style="padding: 0 30px;">
                         <div>
@@ -156,11 +156,11 @@
                             <span class="material-icons-round">search</span>
                             <input type="text" placeholder="Search To-Do's by name" style="width: 100%;">
                         </div>
-                        <span class="material-icons-round">add</span>
+                        <button class = "addButton" id = "addToDoBtn" ><span class="material-icons-round">add</span></button>
                         </div>
                     </div>
                     <div style="display: flex; flex-direction: column; padding: 10px 30px; row-gap: 20px;">
-                        <div class="todo-item">
+                        <div id = "todoList" class="todo-list">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                             <div style="display: flex; column-gap: 15px; align-items: center;">
                             <span class="material-icons-round" style="padding: 10px; background-color: #686868; border-radius: 10px;">construction</span>
@@ -176,6 +176,94 @@
                 <div id="viewer-container" class="dashboard-card"></div>
             </div>
         </div>
+
+        <!-- Project Edit Modal Structure -->
+        <div id="editModal" style = "display: none;">
+            <div class="modal-content" >
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Edit Card Information</h2>
+            <form id="editForm" style = "display: flex; flex-direction: column; align-items: flex-start; margin: 10px;">
+                <div style ="margin: 5px;">
+                <label for="nameInput" >Project Name:</label>
+                <input type="text" data-update-info = "name" value="Default Project"></div><br>
+
+                <div style ="margin: 5px;">
+                    <label for="descriptionInput" >Project Description:</label>
+                    <input type="text" data-update-info = "description" value="Default Project"></div><br>
+                
+                <div style ="margin: 5px;">
+                    <label for="statusInput">Status:</label>
+                    <select type ="form-field-container" data-update-info=" statusInput">
+                        <option>Pending</option>
+                        <option>Active</option>
+                        <option>Finished</option>
+                    </select>
+                    </div>
+                    <br>
+
+                <div style ="margin: 5px;">
+                    <label for="costInput">Cost:</label>
+                    <input type="text" data-update-info="costInput" value="$0">
+                </div>
+                <br>
+        
+                <div style ="margin: 5px;">
+                <label for = "roleInput"> Role: </label>
+                <select type ="form-field-container" data-update-info="roleInput" >
+                        <option>Architect</option>
+                        <option>Engineer</option>
+                        <option>Developer</option>
+                </select> 
+                </div>
+                <br>
+
+                <div style ="margin: 5px;">
+                    <label for="finishDateInput">Finish Date:</label>
+                    <input type="date" data-update-info="finishDateInput" value="2024-07-22"><br>
+                </div>
+                <br>
+                
+                <div style ="display: flex; flex-direction: row; align-self: flex-end; margin: 5px;">
+                <button type="cancel" id="closeModalForm"  style ="margin: 5px;">Cancel</button>
+                <button type="submit" style ="margin: 5px;">Save</button>
+                </div>
+
+            </form>
+            </div>
+        </div>
+
+
+        <!-- Modal for adding a new To-Do -->
+        <div id="todoModal" class="modal hidden">
+            
+            <div class="modal-content-todo">
+            <span id="closeModal" class="close">&times;</span>
+            <h2>Add New To-Do</h2><br>
+
+            <form id="todoForm">
+                <div style="margin: 5px; ">
+                <label for="todoName">To-Do Name:</label>
+                <input type="text" id="todoName" required>
+                </div>
+                <br>
+                
+                <div style="margin: 5px; ">
+                <label for="todoDate">Due Date:</label>
+                <input type="date" id="todoDate" required>
+                </div>
+                <br>
+                
+                <div style="margin: 5px; ">
+                <button type="submit">Add To-Do</button>
+                </div>
+                <br>
+            
+            </form>
+            </div>
+        </div>
+
+        
+        
 
         <div id = "user-page" style ="display: none; flex-direction: column;">
             <header>
@@ -285,6 +373,7 @@
 
     </main>
   <script type = "module" src ="./src/index.ts" ></script>
+ 
   <script type = "module" src ="./src/class/ProjectsManager.ts" ></script>
 </body>
 

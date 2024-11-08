@@ -8,5 +8,5 @@ export function getInitials(projectName) {
       initials += parts[i][0]
     }
   }
-  return initials
+  return initials.toUpperCase()
 }
